@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Simu.App.ViewModels.TarefaViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Tarefas Feitas";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+<br />
+<vc:Summary></vc:Summary>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Nova Tarefa</a>
+</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td class="text-right">
+                    <a asp-action="Delete" class="btn btn-danger" data-modal="" asp-route-id="@item.Id">
+                        <span title="Excluir" class="fa fa-trash"></span>
+                    </a> 
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            AjaxModal();
+        });
+    </script>
+}

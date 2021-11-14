@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Simu.App.ViewModels.TarefaViewModel>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td class="text-right">
+                    <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.Id">
+                        <span title="Editar" class="fa fa-pencil-alt"></span>
+                    </a> |
+                    <a asp-action="Delete" class="btn btn-danger" data-modal="" asp-route-id="@item.Id">
+                        <span title="Excluir" class="fa fa-trash"></span>
+                    </a> |
+                    <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" asp-route-id="@item.Id">
+                        <span title="Concluir" class="fa fa-check"></span>
+                    </a> 
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+
