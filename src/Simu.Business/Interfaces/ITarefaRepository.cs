@@ -11,6 +11,8 @@ namespace Simu.Business.Interfaces
         Task<IEnumerable<Tarefa>> ObterTarefaUsuario(string usuarioId);
         Task<IEnumerable<Tarefa>> ObterTarefaUsuarioDone(string usuarioId);
         Task<IEnumerable<Tarefa>> ObterTarefas();
+        Task<IEnumerable<Tarefa>> ObterProva(string prova);
+
 
     }
 }

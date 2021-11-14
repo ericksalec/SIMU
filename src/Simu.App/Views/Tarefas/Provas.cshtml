@@ -1,66 +1,70 @@
-﻿@model Simu.Business.Models.Tarefa
+﻿@model IEnumerable<Simu.App.ViewModels.TarefaViewModel>
 
 @{
     ViewData["Title"] = "Provas";
 }
 
-<h1>Provas</h1>
+<h1>@ViewData["Title"]</h1>
+<br />
+<br />
+<vc:Summary></vc:Summary>
 
-<div>
-    <h4>Tarefa</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TarefaId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TarefaId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imagem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UploadImagem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UploadImagem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataCadastro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataCadastro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ativo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ativo)
-        </dd>
-    </dl>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td class="text-right">
+                <a asp-action="Detail" class="btn btn-info" data-modal="" asp-route-id="@item.Id">
+                    <span title="Datail" class="fa fa-info-circle"></span>
+                </a>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            AjaxModal();
+        });
+    </script>
+}

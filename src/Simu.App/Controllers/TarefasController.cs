@@ -40,6 +40,12 @@ namespace Simu.App.Controllers
             return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterTarefaUsuarioDone(userId)));
         }
 
+        public async Task<IActionResult> QuestoesProva(string prova)
+        {
+            prova = "";
+            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
+        }
+
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -55,6 +61,24 @@ namespace Simu.App.Controllers
             }
 
             return View(tarefaViewModel);
+        }
+
+        public async Task<IActionResult> Provas()
+        {
+            var model = new TarefaViewModel
+            {
+                Titulo = "POSCOMP 2018",
+                Descricao = "TESTE",
+                DataCadastro = DateTime.Now
+            };
+            var prova = "1";
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
+        }
+
+        public async Task<IActionResult> Questoes()
+        {
+            return View();
         }
 
         public IActionResult Create()
@@ -202,6 +226,20 @@ namespace Simu.App.Controllers
             return PartialView("_ListarTarefas", tarefas);
         }
 
+        public async Task<IActionResult> ObterProva(string prova)
+        {
+
+            var tarefas = _mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova));
+
+            if (tarefas == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("_ListarTarefas", tarefas);
+        }
+
+
         public async Task<IActionResult> ObterTarefaExcluir(Guid id)
         {
 
@@ -224,6 +262,12 @@ namespace Simu.App.Controllers
         private async Task<TarefaViewModel> ObterTarefasUsuario(string usuarioId)
         {
             return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterTarefaUsuario(usuarioId));
+
+        }
+
+        private async Task<TarefaViewModel> ObterProvas(string prova)
+        {
+            return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
 
         }
     }

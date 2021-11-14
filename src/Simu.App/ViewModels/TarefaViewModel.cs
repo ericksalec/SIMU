@@ -31,6 +31,10 @@ namespace Simu.App.ViewModels
         [DisplayName("Feita?")]
         public bool Ativo { get; set; }
 
+        [DisplayName("Prova")]
+        public string Prova { get; set; }
+
+
         //public string TarefaId { get; set; }
 
     }
