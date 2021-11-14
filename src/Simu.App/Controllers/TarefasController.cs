@@ -81,6 +81,11 @@ namespace Simu.App.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Dados()
+        {
+            return View();
+        }
+
         public IActionResult Create()
         {
             return View();
