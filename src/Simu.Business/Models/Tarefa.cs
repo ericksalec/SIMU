@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Simu.Business.Models
 {
@@ -19,5 +20,8 @@ namespace Simu.Business.Models
         public DateTime DataCadastro { get; set; }
 
         public bool Ativo { get; set; }
+        public string Prova { get; set; }
+        public IEnumerable<Questao> Questoes { get; set; }
+
     }
 }

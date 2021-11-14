@@ -7,9 +7,10 @@ namespace Simu.Business.Models
 {
     public class Questao : Entity
     {
-        public Guid ProvaId { get; set; }
-        public Guid AssuntoId { get; set; }
-        public string Conteudo { get; set; }
+        public Guid TarefaId { get; set; }
+        public string Descricao { get; set; }
+        public string Prova { get; set; }
+
 
         // EF Relation
         //public Assunto Assunto { get; set; }

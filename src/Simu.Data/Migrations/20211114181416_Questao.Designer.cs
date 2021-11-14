@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simu.Data.Context;
 
 namespace Simu.Data.Migrations
 {
     [DbContext(typeof(SimuDbContext))]
-    partial class SimuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211114181416_Questao")]
+    partial class Questao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,10 +91,6 @@ namespace Simu.Data.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("varchar(5000)");
-
-                    b.Property<string>("Prova")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
 
                     b.Property<Guid>("TarefaId")
                         .HasColumnType("uniqueidentifier");

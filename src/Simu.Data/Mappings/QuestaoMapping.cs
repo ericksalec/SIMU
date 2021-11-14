@@ -9,13 +9,14 @@ namespace Simu.Data.Mappings
         public void Configure(EntityTypeBuilder<Questao> builder)
         {
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.AssuntoId)
+            builder.Property(p => p.TarefaId)
                 .IsRequired();
-            builder.Property(p => p.ProvaId)
-                .IsRequired();
-            builder.Property(p => p.Conteudo)
+            builder.Property(p => p.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(10000)");
+                .HasColumnType("varchar(5000)");
+            builder.Property(p => p.Prova)
+                .IsRequired()
+                .HasColumnType("varchar(200)");
 
             //1 : 1 => Questao: Prova
             //builder.HasOne(f => f.Prova)
@@ -25,7 +26,6 @@ namespace Simu.Data.Mappings
             //object p = builder.HasMany(p => p.Assunto)
             //    .WithOne(p => p.Questao)
             //    .HasForeingKey(p => p.AssuntoId);
-
 
             builder.ToTable("Questao");
 
