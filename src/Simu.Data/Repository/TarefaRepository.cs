@@ -50,5 +50,6 @@ namespace Simu.Data.Repository
                 .ToListAsync();
         }
 
+
     }
 }

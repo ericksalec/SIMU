@@ -14,5 +14,26 @@ namespace Simu.Data.Repository
     {
         public QuestaoRepository(SimuDbContext context) : base(context) { }
 
+        public async Task<Questao> ObterQuestao(Guid id)
+        {
+            return await Db.Questoes.AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<IEnumerable<Questao>> ObterQuestoes()
+        {
+            return await Db.Questoes.AsNoTracking()
+                .OrderBy(p => p.Prova)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Questao>> ObterQuestoesProva(string prova)
+        {
+            return await Db.Questoes.AsNoTracking()
+                .OrderBy(p => p.Prova)
+                .Where(p => (p.Prova == prova))
+                .ToListAsync();
+        }
+
     }
 }

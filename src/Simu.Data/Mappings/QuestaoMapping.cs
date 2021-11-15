@@ -9,14 +9,35 @@ namespace Simu.Data.Mappings
         public void Configure(EntityTypeBuilder<Questao> builder)
         {
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.TarefaId)
-                .IsRequired();
-            builder.Property(p => p.Descricao)
+            builder.Property(p => p.TarefaId);
+            builder.Property(p => p.Enunciado)
                 .IsRequired()
                 .HasColumnType("varchar(5000)");
             builder.Property(p => p.Prova)
                 .IsRequired()
-                .HasColumnType("varchar(200)");
+                .HasColumnType("varchar(1000)");
+            builder.Property(p => p.TipoAssunto)
+                 .IsRequired()
+                 .HasColumnType("varchar(1000)");
+            builder.Property(p => p.Resposta)
+                 .IsRequired()
+                 .HasColumnType("varchar(1000)");
+            builder.Property(p => p.AnoProva)
+                 .IsRequired()
+                 .HasColumnType("varchar(20)");
+            builder.Property(p => p.A)
+                .IsRequired()
+                .HasColumnType("varchar(1000)");
+            builder.Property(p => p.B)
+                 .IsRequired()
+                 .HasColumnType("varchar(1000)");
+            builder.Property(p => p.C)
+                 .IsRequired()
+                 .HasColumnType("varchar(1000)");
+            builder.Property(p => p.D)
+                 .IsRequired()
+                 .HasColumnType("varchar(1000)");
+
 
             //1 : 1 => Questao: Prova
             //builder.HasOne(f => f.Prova)

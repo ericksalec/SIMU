@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Simu.Business.Models
 {
-    public class Questao : Entity
+    public class Conteudo
     {
-        public Guid TarefaId { get; set; }
-        public string Prova { get; set; }
         public string Enunciado { get; set; }
         public string TipoAssunto { get; set; }
         public string Resposta { get; set; }
@@ -17,10 +16,6 @@ namespace Simu.Business.Models
         public string B { get; set; }
         public string C { get; set; }
         public string D { get; set; }
-
-        // EF Relation
-        //public Assunto Assunto { get; set; }
-        //public Prova Prova { get; set; }
 
     }
 }

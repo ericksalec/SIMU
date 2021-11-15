@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simu.Data.Context;
 
 namespace Simu.Data.Migrations
 {
     [DbContext(typeof(SimuDbContext))]
-    partial class SimuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211115044446_AddConteudo")]
+    partial class AddConteudo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,23 +90,22 @@ namespace Simu.Data.Migrations
 
                     b.Property<string>("A")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
-                    b.Property<string>("AnoProva")
-                        .IsRequired()
-                        .HasColumnType("varchar(20)");
+                    b.Property<int>("AnoProva")
+                        .HasColumnType("int");
 
                     b.Property<string>("B")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("C")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("D")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("Enunciado")
                         .IsRequired()
@@ -112,18 +113,18 @@ namespace Simu.Data.Migrations
 
                     b.Property<string>("Prova")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("Resposta")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<Guid>("TarefaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TipoAssunto")
                         .IsRequired()
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(2000)");
 
                     b.HasKey("Id");
 

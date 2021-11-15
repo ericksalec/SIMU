@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Simu.App.ViewModels;
 using Simu.Business.Interfaces;
 using Simu.Business.Models;
+using Simu.App.Constantes;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json;
 
 namespace Simu.App.Controllers
 {
@@ -275,5 +277,17 @@ namespace Simu.App.Controllers
             return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
 
         }
+
+        //public async Task<IActionResult> Questoes()
+        //{
+        //    var jsonString = Constantes.Constantes.questao11;
+        //    Conteudo questao = JsonSerializer.Deserialize<Conteudo>(jsonString);
+        //    var teste = questao.ToString();
+        //    return View();
+
+        //    //return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
+
+        //}
+
     }
 }
