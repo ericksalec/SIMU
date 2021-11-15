@@ -40,6 +40,7 @@ namespace Simu.Business.Services
         {
             await _questaoRepository.Remover(id);
         }
+
         public void Dispose()
         {
             _questaoRepository?.Dispose();

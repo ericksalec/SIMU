@@ -15,6 +15,8 @@ namespace Simu.App.AutoMapper
         public AutoMapperConfig()
         {
             CreateMap<Tarefa, TarefaViewModel>().ReverseMap();
+            CreateMap<Questao, QuestaoViewModel>().ReverseMap();
+
         }
     }
 }

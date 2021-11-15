@@ -18,17 +18,21 @@ namespace Simu.App.Controllers
     {
         private readonly ITarefaRepository _tarefaRepository;
         private readonly ITarefaService _tarefaService;
-        private readonly IQuestaoRepository _questaoRepository;
-        private readonly IQuestaoService _questaoService;
+        //private readonly IQuestaoRepository _questaoRepository;
+        //private readonly IQuestaoService _questaoService;
         private readonly IMapper _mapper;
 
         public TarefasController(ITarefaRepository tarefaRepository,
                                  IMapper mapper,
                                  ITarefaService tarefaService,
+                                 //IQuestaoRepository questaoRepository,
+                                 //IQuestaoService questaoService,
                                  INotificador notificador) : base(notificador)
         {
             _tarefaRepository = tarefaRepository;
             _tarefaService = tarefaService;
+            //_questaoRepository = questaoRepository;
+            //_questaoService = questaoService;
             _mapper = mapper;
         }
        
@@ -80,10 +84,10 @@ namespace Simu.App.Controllers
             return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
         }
 
-        public async Task<IActionResult> Questoes()
-        {
-            return View();
-        }
+        //public async Task<IActionResult> Questoes()
+        //{
+        //    return View();
+        //}
 
         public async Task<IActionResult> Dados()
         {
@@ -280,16 +284,7 @@ namespace Simu.App.Controllers
 
         }
 
-        public async Task<IActionResult> ObterQuestoes()
-        {
-            var jsonString = Constantes.Constantes.questao11;
-            Conteudo questao = JsonSerializer.Deserialize<Conteudo>(jsonString);
-            var teste = questao.ToString();
-            return View();
 
-            //return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
-
-        }
 
     }
 }

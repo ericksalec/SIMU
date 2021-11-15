@@ -8,7 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Simu.Data.Context;
-
+using Simu.Business.Interfaces;
+using Simu.Data.Repository;
+using Simu.Business.Services;
 
 namespace Simu.App
 {
@@ -40,11 +42,16 @@ namespace Simu.App
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddDbContext<SimuDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Simu.App")));
+
+            services.AddTransient<IQuestaoRepository, QuestaoRepository>();
+            services.AddTransient<ITarefaRepository, TarefaRepository>();
+            services.AddTransient<IQuestaoService, QuestaoService>();
+            services.AddTransient<ITarefaService, TarefaService>();
 
             services.AddAutoMapper(typeof(Startup));
             services.ResolveDependencies();
