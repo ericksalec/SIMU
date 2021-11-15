@@ -18,6 +18,8 @@ namespace Simu.App.Controllers
     {
         private readonly ITarefaRepository _tarefaRepository;
         private readonly ITarefaService _tarefaService;
+        private readonly IQuestaoRepository _questaoRepository;
+        private readonly IQuestaoService _questaoService;
         private readonly IMapper _mapper;
 
         public TarefasController(ITarefaRepository tarefaRepository,
@@ -278,16 +280,16 @@ namespace Simu.App.Controllers
 
         }
 
-        //public async Task<IActionResult> Questoes()
-        //{
-        //    var jsonString = Constantes.Constantes.questao11;
-        //    Conteudo questao = JsonSerializer.Deserialize<Conteudo>(jsonString);
-        //    var teste = questao.ToString();
-        //    return View();
+        public async Task<IActionResult> ObterQuestoes()
+        {
+            var jsonString = Constantes.Constantes.questao11;
+            Conteudo questao = JsonSerializer.Deserialize<Conteudo>(jsonString);
+            var teste = questao.ToString();
+            return View();
 
-        //    //return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
+            //return _mapper.Map<TarefaViewModel>(await _tarefaRepository.ObterProva(prova));
 
-        //}
+        }
 
     }
 }

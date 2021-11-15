@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simu.App.Controllers
 {
-    public class Provas : Controller
+    public class ProvasController : Controller
     {
         public IActionResult Index()
         {
