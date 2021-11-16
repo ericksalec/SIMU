@@ -46,7 +46,7 @@ namespace Simu.App
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddDbContext<SimuDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("Simu.App")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IQuestaoRepository, QuestaoRepository>();
             services.AddTransient<ITarefaRepository, TarefaRepository>();

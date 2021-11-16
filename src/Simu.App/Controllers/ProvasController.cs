@@ -43,5 +43,24 @@ namespace Simu.App.Controllers
 
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> SalvarResposta(Guid id, QuestaoViewModel questaoViewModel)
+        //{
+        //    if (id != tarefaViewModel.Id) return NotFound();
+
+
+        //    if (!ModelState.IsValid) return PartialView("_EditarTarefa", new TarefaViewModel { Titulo = tarefaViewModel.Titulo, Descricao = tarefaViewModel.Descricao });
+
+
+        //    var tarefa = _mapper.Map<Tarefa>(tarefaViewModel);
+        //    await _tarefaService.Atualizar(tarefa);
+
+        //    var url = Url.Action("ObterTarefas", "Tarefas", new { id = tarefa.Id });
+
+        //    return Json(new { success = true, url });
+        //}
+
+
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simu.Data.Context;
 
-namespace Simu.Data.Migrations
+namespace Simu.App.Migrations.SimuDb
 {
     [DbContext(typeof(SimuDbContext))]
     partial class SimuDbContextModelSnapshot : ModelSnapshot
