@@ -279,6 +279,7 @@ namespace Simu.App.Controllers
             //    Descricao = "TESTE",
             //    DataCadastro = DateTime.Now
             //};
+
             var prova = "1";
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
