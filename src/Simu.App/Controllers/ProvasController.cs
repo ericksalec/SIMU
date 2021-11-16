@@ -6,6 +6,7 @@ using Simu.Business.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Simu.App.Controllers
@@ -41,5 +42,6 @@ namespace Simu.App.Controllers
             return View(_mapper.Map<IEnumerable<QuestaoViewModel>>(await _questaoRepository.ObterQuestoes()));
 
         }
+
     }
 }

@@ -35,5 +35,12 @@ namespace Simu.Data.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Questao>> ObterProva(string prova)
+        {
+            return await Db.Questoes.AsNoTracking()
+                .OrderBy(p => p.Prova)
+                .Where(p => (p.Prova == prova))
+                .ToListAsync();
+        }
     }
 }

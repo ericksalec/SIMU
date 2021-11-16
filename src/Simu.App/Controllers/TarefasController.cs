@@ -71,19 +71,6 @@ namespace Simu.App.Controllers
             return View(tarefaViewModel);
         }
 
-        public async Task<IActionResult> Provas()
-        {
-            var model = new TarefaViewModel
-            {
-                Titulo = "POSCOMP 2018",
-                Descricao = "TESTE",
-                DataCadastro = DateTime.Now
-            };
-            var prova = "1";
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
-        }
-
         //public async Task<IActionResult> Questoes()
         //{
         //    return View();
@@ -284,7 +271,18 @@ namespace Simu.App.Controllers
 
         }
 
-
+        public async Task<IActionResult> Provas()
+        {
+            //var model = new TarefaViewModel
+            //{
+            //    Titulo = "POSCOMP 2018",
+            //    Descricao = "TESTE",
+            //    DataCadastro = DateTime.Now
+            //};
+            var prova = "1";
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
+        }
 
     }
 }

@@ -12,6 +12,8 @@ namespace Simu.Business.Interfaces
         Task<Questao> ObterQuestao(Guid id);
         Task<IEnumerable<Questao>> ObterQuestoes();
         Task<IEnumerable<Questao>> ObterQuestoesProva(string prova);
+        Task<IEnumerable<Questao>> ObterProva(string prova);
+
 
     }
 }

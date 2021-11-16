@@ -1,5 +1,4 @@
-﻿@*@model Simu.Business.Models.Questao*@
-@model IEnumerable<Simu.App.ViewModels.QuestaoViewModel>
+﻿@model IEnumerable<Simu.App.ViewModels.QuestaoViewModel>
 
 @{
     ViewData["Title"] = "Questoes";
@@ -85,6 +84,44 @@
         </li>
     </ul>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enunciado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resposta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enunciado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resposta)
+            </td>
+            @*<td class="text-right">
+                <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.Id">
+                    <span title="Editar" class="fa fa-pencil-alt"></span>
+                </a> |
+                <a asp-action="Delete" class="btn btn-danger" data-modal="" asp-route-id="@item.Id">
+                    <span title="Excluir" class="fa fa-trash"></span>
+                </a> |
+                <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" asp-route-id="@item.Id">
+                    <span title="Concluir" class="fa fa-check"></span>
+                </a>
+            </td>*@
+        </tr>
+        }
+    </tbody>
+</table>
 @*<div class="form-group">
 
         <td>Alternativas</td>
