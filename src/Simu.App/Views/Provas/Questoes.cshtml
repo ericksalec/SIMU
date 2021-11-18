@@ -6,229 +6,56 @@
 
 <h1>Provas</h1>
 
-<div>
-    <h4>Alternativas</h4>
-
-</div>
-<div>
-    <tr>
-
-        <td class="text-right">
-
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" a>
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>
-        </td>
-    </tr>
-</div>
 <br />
 <br />
 <br />
-@*<div class="card">
-    <div class="card-header">
-        Enunciado
-    </div>
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>Mussum Ipsum, cacilds vidis litro abertis. Leite de capivaris, leite de mula manquis sem cabeça. Diuretics paradis num copo é motivis de denguis. Suco de cevadiss deixa as pessoas mais interessantis. Quem num gosta di mim que vai caçá sua turmis!</p>
-            <p>Mussum Ipsum, cacilds vidis litro abertis. Leite de capivaris, leite de mula manquis sem cabeça. Diuretics paradis num copo é motivis de denguis. Suco de cevadiss deixa as pessoas mais interessantis. Quem num gosta di mim que vai caçá sua turmis!</p>
-        </blockquote>
-    </div>
-</div>
-<br />*@
 
-@*<div class="card" style="width: 18rem;">
-    <div class="card-header">
-        Alternativas
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-
-            </label>Cras justo odio
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-
-            </label>Dapibus ac facilisis in
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-
-            </label>Vestibulum at eros
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-
-            </label>Vestibulum at eros
-        </li>
-    </ul>
-</div>*@
-
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Enunciado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resposta)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>*@
 @foreach (var item in Model)
 {
+<div class="container p-3 my-3 border">
     <div class="card-header">
-        Enunciado
+        Questão  @Html.DisplayFor(modelItem => item.Id)
     </div>
-    <div class="card-body">
+    <div class="container p-3 my-3 border">
         <blockquote class="blockquote mb-0">
             @Html.DisplayFor(modelItem => item.Enunciado)
         </blockquote>
     </div>
     <br />
-    <br />
-    <!--<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Enunciado)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TipoAssunto)
-    </td>-->
-    @*<td class="text-right">
-            <a asp-action="Edit" class="btn btn-info" asp-route-id="@item.Id">
-                <span title="Editar" class="fa fa-pencil-alt"></span>
-            </a> |
-            <a asp-action="Delete" class="btn btn-danger" data-modal="" asp-route-id="@item.Id">
-                <span title="Excluir" class="fa fa-trash"></span>
-            </a> |
-            <a asp-action="ConcluirTarefa" class="btn btn-success" data-modal="" asp-route-id="@item.Id">
-                <span title="Concluir" class="fa fa-check"></span>
-            </a>
-        </td>*@
-    <!--</tr>-->
 
-    <div class="card" style="width: 48rem;">
-        <div class="card-header">
-            Alternativas
-        </div>
+    <div>
+
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <label>A</label> 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+            <li class="list-group-item">                
+                <input class="form-check-input" type="radio" name="radioA" value="@item.A" id="radio_a">
+                <label class="form-check-label" for="radioA">
                     @Html.DisplayFor(modelItem => item.A)
-
                 </label>
             </li>
             <li class="list-group-item">
-                <label>B</label>
-
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="radioB" value="@item.B" id="radio_b">
+                <label class="form-check-label" for="radioB">
                     @Html.DisplayFor(modelItem => item.B)
-
-                </label>Dapibus ac facilisis in
+                </label>
             </li>
             <li class="list-group-item">
-                <label>C</label>
-
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="radioC" value="@item.C" id="radio_c">
+                <label class="form-check-label" for="radioC">
                     @Html.DisplayFor(modelItem => item.C)
-
-                </label>Vestibulum at eros
+                </label>
             </li>
             <li class="list-group-item">
-                <label>D</label>
-
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
+                <input class="form-check-input" type="radio" name="radioD"value="@item.D" id="radio_d">
+                <label class="form-check-label" for="radioD">
                     @Html.DisplayFor(modelItem => item.D)
-
-                </label>Vestibulum at eros
+                </label>
             </li>
         </ul>
     </div>
+</div>
 
-    @*<tr>
-            @Html.DisplayFor(modelItem => item.A)
-        </tr>
-        <tr>
-            @Html.DisplayFor(modelItem => item.B)
-        </tr>
-        <tr>
-            @Html.DisplayFor(modelItem => item.C)
-        </tr>
-        <tr>
-            @Html.DisplayFor(modelItem => item.D)
-        </tr>*@
+
 }
-@*</tbody>
-    </table>*@
-@*<div class="form-group">
-
-        <td>Alternativas</td>
-        <br />
-        <br />
-
-    </div>
-
-    <div class="form-check">
-
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-            A
-        </label>
-
-    </div>
-    <div class="form-check">
-
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-            B
-        </label>
-
-    </div>
-    <div class="form-check">
-
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-            C
-        </label>
-
-    </div>
-    <div class="form-check">
-
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-            D
-        </label>
-
-    </div>*@
-
 
 <br />
 <br />
