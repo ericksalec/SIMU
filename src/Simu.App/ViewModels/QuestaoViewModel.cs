@@ -41,6 +41,11 @@ namespace Simu.App.ViewModels
         [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
         public int AnoProva { get; set; }
 
+        [DisplayName("Numero")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
+        public int Numero { get; set; }
+
         [DisplayName("Alternativa A")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(2000, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
@@ -60,6 +65,11 @@ namespace Simu.App.ViewModels
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [StringLength(2000, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
         public string D { get; set; }
+
+        [DisplayName("Alternativa E")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [StringLength(2000, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
+        public string E { get; set; }
 
     }
 }
