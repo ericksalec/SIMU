@@ -61,6 +61,25 @@ namespace Simu.App.Controllers
 
             return View(dadoViewModel);
         }
+
+        public async Task<DadoViewModel> ObterDadosPorAno(int anoProva)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var id = Guid.Parse(userId);
+
+            var dado = _mapper.Map<Dado>(await _dadoRepository.ObterDadosUsuarioPorAno(id, anoProva));
+
+            var dadoViewModel = new DadoViewModel
+            {
+                Acertos = dado.Acertos,
+                Erros = dado.Erros,
+                Respondidas = dado.Respondidas,
+                AnoProva = dado.AnoProva,
+            };
+
+            return dadoViewModel;
+        }
+
         public async Task<IActionResult> QuestoesPorProva(string prova)
         {
             ViewData["Prova"] = prova;

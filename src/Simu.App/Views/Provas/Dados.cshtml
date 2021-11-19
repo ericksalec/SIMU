@@ -27,8 +27,8 @@
             data.addColumn('string', 'Linguagem'); //Adiciona a coluna 'Linguagem'
             data.addColumn('number', 'Porcentagem');//Adiciona coluna 'Porcentagem'
             data.addRows([ //Adiciona as linhas da tabela com os valores
-                ['Corretas', 184],
-                ['Incorretas', 96]
+            ['Corretas', @Html.Display("Acertos")],
+            ['Incorretas', @Html.Display("Erros")]
             ]);
 
             // Configura título, largura e altura do gráfico
@@ -63,9 +63,9 @@
             data.addColumn('string', 'Linguagem'); //Adiciona a coluna 'Linguagem'
             data.addColumn('number', 'Porcentagem');//Adiciona coluna 'Porcentagem'
             data.addRows([ //Adiciona as linhas da tabela com os valores
-                ['Matemática', 75],
-                ['Fundamentos da Computação', 80],
-                ['Tecnologia da Computação', 125]
+                ['Matemática', 7],
+                ['Fundamentos da Computação', 8],
+                ['Tecnologia da Computação', 12]
             ]);
 
 

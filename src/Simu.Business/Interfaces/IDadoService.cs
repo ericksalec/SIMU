@@ -12,5 +12,6 @@ namespace Simu.Business.Interfaces
         Task Adicionar(Dado dado);
         Task Atualizar(Dado dado);
         Task Remover(Guid id);
+        Task BuscarDadosUsuario(Guid id);
     }
 }

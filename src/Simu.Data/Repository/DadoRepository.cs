@@ -48,5 +48,35 @@ namespace Simu.Data.Repository
 
             return dado;
         }
+
+        public async Task<Dado> ObterDadosUsuarioPorAno(Guid id, int anoProva)
+        {
+            var somaAcertos = 0;
+            var somaErros = 0;
+            var somaRespondidas = 0;
+
+            var list = await Db.Dado.AsNoTracking()
+                .OrderBy(p => p.Id)
+                .Where(p => (p.UserId == id && p.AnoProva == anoProva))
+                .ToListAsync();
+
+            foreach (var item in list)
+            {
+                somaRespondidas = somaRespondidas + item.Respondidas;
+                somaAcertos = somaAcertos + item.Acertos;
+                somaErros = somaErros + item.Erros;
+            }
+
+            var dado = new Dado
+            {
+                Acertos = somaAcertos,
+                Erros = somaErros,
+                Respondidas = somaRespondidas,
+                UserId = id, 
+                AnoProva = anoProva,
+            };
+
+            return dado;
+        }
     }
 }

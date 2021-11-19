@@ -43,8 +43,6 @@ namespace Simu.Business.Services
         public async Task BuscarDadosUsuario(Guid id)
         {
             await _dadoRepository.ObterDadosUsuario(id);
-
-            //return null;
         }
 
 
