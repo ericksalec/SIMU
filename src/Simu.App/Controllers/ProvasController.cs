@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ceTe.DynamicPDF;
 
 namespace Simu.App.Controllers
 {
@@ -160,8 +161,6 @@ namespace Simu.App.Controllers
 
         public bool AdicionarDados(Dado dado)
         {
-
-            //var dado = _mapper.Map<Dado>(dadoViewModel);
             dado.Id = new Guid();
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -170,6 +169,5 @@ namespace Simu.App.Controllers
 
             return true;
         }
-
     }
 }

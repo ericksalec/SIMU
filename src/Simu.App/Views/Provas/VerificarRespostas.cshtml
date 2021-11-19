@@ -8,9 +8,19 @@
 
         <br />
         <div class="alert alert-info" role="alert">
-            <h3>Resultados:</h3>
-            <h4>Acertos - @TempData["Acertos"]</h4>
-            <h4>Erros - @TempData["Erros"]</h4>
+            <h3>Resultado:</h3>
+            <h4>
+                <a class="btn btn-success" a>
+                    <span class="fa fa-check"></span>
+                </a>
+                Acertos - @TempData["Acertos"]
+            </h4>
+            <h4>
+                <a class="btn btn-danger" a>
+                    <span class="fa fa-circle-notch"></span>
+                </a>
+                Erros - @TempData["Erros"]
+            </h4>
         </div>
     </div>
 </div>
@@ -148,7 +158,7 @@
 <br />
 <br />
 <div>
-    <input asp-action="AdicionarDados" type="submit" value="Processar resultado" class="btn btn-success btn-lg" id="ddd" />
+    <input asp-action="Convert" asp-area="Provas" type="submit" value="Processar resultado" class="btn btn-success btn-lg" id="ddd" />
 </div>
 <div>
 
