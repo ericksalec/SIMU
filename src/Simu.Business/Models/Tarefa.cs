@@ -12,6 +12,7 @@ namespace Simu.Business.Models
         public string Titulo { get; set; }
 
         public string Descricao { get; set; }
+        public string Prova { get; set; }
 
         public string Imagem { get; set; }
 
@@ -20,8 +21,5 @@ namespace Simu.Business.Models
         public DateTime DataCadastro { get; set; }
 
         public bool Ativo { get; set; }
-        public string Prova { get; set; }
-        public IEnumerable<Questao> Questoes { get; set; }
-
     }
 }

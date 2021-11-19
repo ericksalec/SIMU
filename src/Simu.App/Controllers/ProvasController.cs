@@ -33,10 +33,7 @@ namespace Simu.App.Controllers
         {
             return View();
         }
-        //public async Task<IActionResult> Questoes()
-        //{
-        //    return View();
-        //}
+
         public async Task<IActionResult> Questoes()
         {
             return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoes()));
@@ -45,7 +42,7 @@ namespace Simu.App.Controllers
 
         public async Task<IActionResult> QuestoesPorProva(string prova)
         {
-            prova = "2019";
+            ViewData["Prova"] = prova;
             return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoesProva(prova)));
 
         }

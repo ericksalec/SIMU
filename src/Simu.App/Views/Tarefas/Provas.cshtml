@@ -5,6 +5,8 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+<h3>Escolha uma prova para realizar a simulação.</h3>
+
 <br />
 <br />
 <vc:Summary></vc:Summary>
@@ -13,112 +15,115 @@
 <br />
 @foreach (var item in Model)
 {
-<div class="row">
-    <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
-            <img alt="img" src="@Url.Content("~/imagens/poscomp17.jpg")" class="card-img-top" />
-            <div class="card-body">
-                <h5 class="card-title">
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </h5>
-                <p class="card-text">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </p>
-                <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                    <span> Vizualizar prova</span>
-                </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscomp17.jpg")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-Prova="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <br />
+            <br />
 
-    <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
-            <img alt="img" src="@Url.Content("~/imagens/poscomp18.png")" class="card-img-top" />
-            <div class="card-body">
-                <h5 class="card-title">
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </h5>
-                <p class="card-text">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </p>
-                <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                    <span> Vizualizar prova</span>
-                </a>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscomp18.png")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <br />
-    <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
-            <img alt="img" src="@Url.Content("~/imagens/poscompnew.png")" class="card-img-top" />
-            <div class="card-body">
-                <h5 class="card-title">
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </h5>
-                <p class="card-text">
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </p>
-                <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                    <span> Vizualizar prova</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-    <br />
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">
-                        @Html.DisplayFor(modelItem => item.Titulo)
-                    </h5>
-                    <p class="card-text">
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </p>
-                    <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                        <span> Vizualizar prova</span>
-                    </a>
+            <br />
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscompnew.png")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         <br />
-        <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">
-                        @Html.DisplayFor(modelItem => item.Titulo)
-                    </h5>
-                    <p class="card-text">
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </p>
-                    <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                        <span> Vizualizar prova</span>
-                    </a>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br />
-        <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">
-                        @Html.DisplayFor(modelItem => item.Titulo)
-                    </h5>
-                    <p class="card-text">
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </p>
-                    <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
-                        <span> Vizualizar prova</span>
-                    </a>
+            <br />
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img alt="img" src="@Url.Content("~/imagens/poscomp.png")" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </h5>
+                        <p class="card-text">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </p>
+                        <a asp-controller="Provas" asp-action="QuestoesPorProva" class="btn btn-primary" asp-route-id="@item.Prova">
+                            <span> Vizualizar prova</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 }
 
 
