@@ -3,8 +3,10 @@
 @{
     ViewData["Title"] = "Questoes";
 }
+<div>
+    <h1>Simulado para o Exame Nacional para Ingresso na Pós-Graduação em Computação (POSCOMP)</h1>
+</div>
 
-<h1>Avaliação POSCOMP</h1>
 
 <br />
 <br />
@@ -14,7 +16,7 @@
 {
     <div class="container p-3 my-3 border">
         <div class="card-header">
-            Questão  @Html.DisplayFor(modelItem => item.Id)
+            Questão  @Html.DisplayFor(modelItem => item.Numero)
         </div>
         <div class="container p-3 my-3 border">
             <blockquote class="blockquote mb-0">

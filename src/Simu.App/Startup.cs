@@ -85,7 +85,7 @@ namespace Simu.App
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Tarefas}/{action=TarefasFeitas}/{id?}");
+                    pattern: "{controller=Tarefas}/{action=Provas}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

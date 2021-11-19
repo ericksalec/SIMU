@@ -43,6 +43,13 @@ namespace Simu.App.Controllers
 
         }
 
+        public async Task<IActionResult> QuestoesPorProva(string prova)
+        {
+            prova = "2019";
+            return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoesProva(prova)));
+
+        }
+
         public  IActionResult QuestoesRespondidas(IList<QuestaoViewModel> questaoViewModel)
         {
             return View(questaoViewModel);

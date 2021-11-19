@@ -18,15 +18,11 @@ namespace Simu.App.Controllers
     {
         private readonly ITarefaRepository _tarefaRepository;
         private readonly ITarefaService _tarefaService;
-        //private readonly IQuestaoRepository _questaoRepository;
-        //private readonly IQuestaoService _questaoService;
         private readonly IMapper _mapper;
 
         public TarefasController(ITarefaRepository tarefaRepository,
                                  IMapper mapper,
                                  ITarefaService tarefaService,
-                                 //IQuestaoRepository questaoRepository,
-                                 //IQuestaoService questaoService,
                                  INotificador notificador) : base(notificador)
         {
             _tarefaRepository = tarefaRepository;
@@ -71,12 +67,7 @@ namespace Simu.App.Controllers
             return View(tarefaViewModel);
         }
 
-        //public async Task<IActionResult> Questoes()
-        //{
-        //    return View();
-        //}
-
-        public async Task<IActionResult> Dados()
+        public  IActionResult Dados()
         {
             return View();
         }
@@ -273,10 +264,9 @@ namespace Simu.App.Controllers
 
         public async Task<IActionResult> Provas()
         {
-            var prova = "1";
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProva(prova)));
+            return View(_mapper.Map<IEnumerable<TarefaViewModel>>(await _tarefaRepository.ObterProvas()));
         }
+
 
     }
 }

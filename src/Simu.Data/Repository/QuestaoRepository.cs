@@ -30,7 +30,7 @@ namespace Simu.Data.Repository
         public async Task<IEnumerable<Questao>> ObterQuestoesProva(string prova)
         {
             return await Db.Questoes.AsNoTracking()
-                .OrderBy(p => p.Prova)
+                .OrderBy(p => p.Numero)
                 .Where(p => (p.Prova == prova))
                 .ToListAsync();
         }
@@ -42,5 +42,7 @@ namespace Simu.Data.Repository
                 .Where(p => (p.Prova == prova))
                 .ToListAsync();
         }
+
+
     }
 }
