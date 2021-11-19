@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Simu.App.ViewModels.QuestaoViewModel>
+
+@{
+    ViewData["Title"] = "Questoes";
+}
+
+<h1>Avaliação POSCOMP</h1>
+
+<br />
+<br />
+<br />
+
+@foreach (var item in Model)
+{
+    <div class="container p-3 my-3 border">
+        <div class="card-header">
+            Questão  @Html.DisplayFor(modelItem => item.Id)
+        </div>
+        <div class="container p-3 my-3 border">
+            <blockquote class="blockquote mb-0">
+                @Html.DisplayFor(modelItem => item.Enunciado)
+            </blockquote>
+        </div>
+        <br />
+
+        <div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <input class="form-check-input" type="radio" name="radioA" value="@item.A" id="radio_a" disabled>
+                    <label class="form-check-label" for="radioA">
+                        @Html.DisplayFor(modelItem => item.A)
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="radio" name="radioB" value="@item.B" id="radio_b" disabled>
+                    <label class="form-check-label" for="radioB">
+                        @Html.DisplayFor(modelItem => item.B)
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="radio" name="radioC" value="@item.C" id="radio_c" disabled>
+                    <label class="form-check-label" for="radioC">
+                        @Html.DisplayFor(modelItem => item.C)
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="radio" name="radioD" value="@item.D" id="radio_d" disabled>
+                    <label class="form-check-label" for="radioD">
+                        @Html.DisplayFor(modelItem => item.D)
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="radio" name="radioD" value="@item.E" id="radio_e" disabled>
+                    <label class="form-check-label" for="radioE">
+                        @Html.DisplayFor(modelItem => item.E)
+                    </label>
+                </li>
+            </ul>
+        </div>
+        @if (!item.Correta)
+        {
+            <div class="alert alert-danger" role="alert" id="correta">
+                <h5 class="alert-heading">Resposta incorreta.</h5>
+                @Html.DisplayFor(modelItem => item.Resposta)
+            </div> }
+        else
+        {
+            <div class="alert alert-success" role="alert" id="correta">
+                <h5 class="alert-heading">Resposta correta!</h5>
+                @Html.DisplayFor(modelItem => item.Resposta)
+            </div>
+        }
+
+    </div>
+
+
+}
+
+<br />
+<br />
+
+<div>
+
+    <a asp-action="Index">Escolher outra prova</a>
+</div>

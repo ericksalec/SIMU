@@ -39,28 +39,55 @@ namespace Simu.App.Controllers
         //}
         public async Task<IActionResult> Questoes()
         {
-            return View(_mapper.Map<IEnumerable<QuestaoViewModel>>(await _questaoRepository.ObterQuestoes()));
+            return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoes()));
 
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> SalvarResposta(Guid id, QuestaoViewModel questaoViewModel)
-        //{
-        //    if (id != tarefaViewModel.Id) return NotFound();
+        public  IActionResult QuestoesRespondidas(IList<QuestaoViewModel> questaoViewModel)
+        {
+            return View(questaoViewModel);
+        }
 
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerificarRespostas(IList<QuestaoViewModel> questaoViewModel)
+        {
+            var listModel = questaoViewModel;
+            foreach (var item in listModel)
+            {
+                var resposta = VerificarAlternativa(item);
+                var questao = await _questaoRepository.ObterQuestao(item.Id);
 
-        //    if (!ModelState.IsValid) return PartialView("_EditarTarefa", new TarefaViewModel { Titulo = tarefaViewModel.Titulo, Descricao = tarefaViewModel.Descricao });
-
-
-        //    var tarefa = _mapper.Map<Tarefa>(tarefaViewModel);
-        //    await _tarefaService.Atualizar(tarefa);
-
-        //    var url = Url.Action("ObterTarefas", "Tarefas", new { id = tarefa.Id });
-
-        //    return Json(new { success = true, url });
-        //}
-
+                if (questao.Resposta == resposta)
+                    item.Correta = true;
+                else
+                    item.Correta = false;
+                
+            }
+            return View(listModel);
+        }
+        public string VerificarAlternativa(QuestaoViewModel model)
+        {
+            var resposta = "";
+            switch (model.Marcada)
+            {
+                case "A":
+                    resposta = model.A;
+                    break;
+                case "B":
+                    resposta = model.B;
+                    break;
+                case "C":
+                    resposta = model.C;
+                    break;
+                case "D":
+                    resposta = model.D;
+                    break;
+                case "E":
+                    resposta = model.E;
+                    break;
+            }
+            return resposta;
+        }
 
     }
 }

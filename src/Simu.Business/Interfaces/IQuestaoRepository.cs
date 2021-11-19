@@ -10,7 +10,7 @@ namespace Simu.Business.Interfaces
     public interface IQuestaoRepository : IRepository<Questao>
     {
         Task<Questao> ObterQuestao(Guid id);
-        Task<IEnumerable<Questao>> ObterQuestoes();
+        Task<IList<Questao>> ObterQuestoes();
         Task<IEnumerable<Questao>> ObterQuestoesProva(string prova);
         Task<IEnumerable<Questao>> ObterProva(string prova);
 

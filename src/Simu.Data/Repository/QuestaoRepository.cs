@@ -20,10 +20,10 @@ namespace Simu.Data.Repository
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<IEnumerable<Questao>> ObterQuestoes()
+        public async Task<IList<Questao>> ObterQuestoes()
         {
             return await Db.Questoes.AsNoTracking()
-                .OrderBy(p => p.Prova)
+                .OrderBy(p => p.Numero)
                 .ToListAsync();
         }
 

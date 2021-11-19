@@ -15,7 +15,6 @@ namespace Simu.App.ViewModels
         [HiddenInput]
         public Guid TarefaId { get; set; }
 
-
         [DisplayName("Prova")]
         [Required(ErrorMessage ="O campo {0} é obrigatório")]
         [StringLength(5000, ErrorMessage ="O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
@@ -36,14 +35,16 @@ namespace Simu.App.ViewModels
         [StringLength(5000, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
         public string Resposta { get; set; }
 
+        [HiddenInput]
+        public string Marcada { get; set; }
+
+        [HiddenInput]
+        public bool Correta { get; set; }
+
         [DisplayName("AnoProva")]
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
         public int AnoProva { get; set; }
 
         [DisplayName("Numero")]
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        [StringLength(200, ErrorMessage = "O campo {0} precisa ter entre {1} e {2} caracteres", MinimumLength = 1)]
         public int Numero { get; set; }
 
         [DisplayName("Alternativa A")]

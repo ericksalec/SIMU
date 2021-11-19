@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Simu.Data.Migrations
+namespace Simu.App.Migrations
 {
-    public partial class AddConteudoFix : Migration
+    public partial class NewBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
