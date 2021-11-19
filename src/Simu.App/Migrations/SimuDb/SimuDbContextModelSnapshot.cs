@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Simu.Data.Context;
 
-namespace Simu.Data.Migrations
+namespace Simu.App.Migrations.SimuDb
 {
     [DbContext(typeof(SimuDbContext))]
     partial class SimuDbContextModelSnapshot : ModelSnapshot
@@ -53,8 +53,8 @@ namespace Simu.Data.Migrations
                     b.Property<int>("Respondidas")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -106,15 +106,9 @@ namespace Simu.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(1000)");
 
-                    b.Property<string>("E")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Enunciado")
                         .IsRequired()
                         .HasColumnType("varchar(5000)");
-
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
 
                     b.Property<string>("Prova")
                         .IsRequired()

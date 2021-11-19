@@ -1,0 +1,79 @@
+﻿@model IList<Simu.App.ViewModels.QuestaoViewModel>
+@using (Html.BeginForm("VerificarRespostas", "Provas", FormMethod.Post))
+{
+    ViewData["Title"] = "Questoes";
+
+    <div>
+        <h1>Simulado</h1>
+        <h3>Exame Nacional para Ingresso na Pós-Graduação em Computação (POSCOMP)</h3>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    @for (var i = 0; i < Model.Count(); ++i)
+    {
+        <div class="container p-3 my-3 border">
+            <div class="card-header">
+                Pergunta  @Html.DisplayFor(model => model[i].Numero)
+            </div>
+            <div class="container p-3 my-3 border">
+                <blockquote class="blockquote mb-0">
+                    @Html.DisplayFor(model => model[i].Enunciado)
+                </blockquote>
+            </div>
+            <br />
+
+            <div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        @Html.RadioButtonFor(model => model[i].Marcada, "A")
+                        @Html.DisplayFor(model => model[i].A)
+                    </li>
+                    <li class="list-group-item">
+                        @Html.RadioButtonFor(model => model[i].Marcada, "B")
+                        @Html.DisplayFor(model => model[i].B)
+                    </li>
+                    <li class="list-group-item">
+                        @Html.RadioButtonFor(model => model[i].Marcada, "C")
+                        @Html.DisplayFor(model => model[i].C)
+                    </li>
+                    <li class="list-group-item">
+                        @Html.RadioButtonFor(model => model[i].Marcada, "D")
+                        @Html.DisplayFor(model => model[i].D)
+                    </li>
+                    <li class="list-group-item">
+                        @Html.RadioButtonFor(model => model[i].Marcada, "E")
+                        @Html.DisplayFor(model => model[i].E)
+                    </li>
+                </ul>
+            </div>
+
+            @Html.HiddenFor(model => model[i].Id)
+            @Html.HiddenFor(model => model[i].TarefaId)
+            @Html.HiddenFor(model => model[i].AnoProva)
+            @Html.HiddenFor(model => model[i].Numero)
+            @Html.HiddenFor(model => model[i].Resposta)
+            @Html.HiddenFor(model => model[i].Enunciado)
+            @Html.HiddenFor(model => model[i].TipoAssunto)
+            @Html.HiddenFor(model => model[i].Prova)
+            @Html.HiddenFor(model => model[i].A)
+            @Html.HiddenFor(model => model[i].B)
+            @Html.HiddenFor(model => model[i].C)
+            @Html.HiddenFor(model => model[i].D)
+            @Html.HiddenFor(model => model[i].E)
+
+
+        </div>
+    }
+
+    <div>
+        <input asp-action="VerificarRespostas" type="submit" value="Finalizar simulado" class="btn btn-success btn-lg" id="ddd" />
+    </div>
+    <br />
+    <br />
+
+    <div>
+        <a asp-action="Provas">Escolher outra prova</a>
+    </div>
+}

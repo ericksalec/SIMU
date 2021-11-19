@@ -9,6 +9,10 @@ namespace Simu.Data.Context
         public SimuDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Tarefa> Tarefas { get; set; }
+        public DbSet<Prova> Provas { get; set; }
+        public DbSet<Questao> Questoes { get; set; }
+        public DbSet<Assunto> Assuntos { get; set; }
+        public DbSet<Dado> Dado { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

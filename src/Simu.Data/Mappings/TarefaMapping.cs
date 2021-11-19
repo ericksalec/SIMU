@@ -22,10 +22,13 @@ namespace Simu.Data.Mappings
 
             builder.Property(p => p.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(1000)");
+                .HasColumnType("varchar(5000)");
 
             builder.Property(p => p.Imagem)
                 .HasColumnType("varchar(100)");
+
+            builder.Property(p => p.Prova)
+                .HasColumnType("varchar(200)");
 
             builder.ToTable("Tarefas");
 

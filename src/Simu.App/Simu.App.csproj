@@ -33,4 +33,8 @@
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\imagens\poscomp.png" />
+  </ItemGroup>
+
 </Project>
