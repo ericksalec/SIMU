@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<Simu.App.ViewModels.QuestaoViewModel>
 @{ ViewData["Title"] = "Questoes"; }
 
-<div>
-    <h1>Simulado</h1>
-    <h3>Exame Nacional para Ingresso na Pós-Graduação em Computação (POSCOMP)</h3>
+<div class="card">
+    <div class="card-body">
+        <h1>Simulado</h1>
+        <h3>Exame Nacional para Ingresso na Pós-Graduação em Computação (POSCOMP)</h3>
 
-    <br />
-    <div class="alert alert-info" role="alert">
-        <h3>Resultados:</h3>
-        <h4>Acertos - @TempData["Acertos"]</h4>
-        <h4>Erros - @TempData["Erros"]</h4>
+        <br />
+        <div class="alert alert-info" role="alert">
+            <h3>Resultados:</h3>
+            <h4>Acertos - @TempData["Acertos"]</h4>
+            <h4>Erros - @TempData["Erros"]</h4>
+        </div>
     </div>
 </div>
-
-
 
 <br />
 <br />

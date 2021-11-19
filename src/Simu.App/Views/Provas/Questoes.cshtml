@@ -3,11 +3,14 @@
 {
     ViewData["Title"] = "Questoes";
 
-    <h1>Simulação POSCOMP</h1>
-    <h2>Questões aleatórias das avaliações mais recentes.</h2>
 
+    <div class="card">
+        <div class="card-body">
+            <h1>Simulação POSCOMP</h1>
+            <h2>Questões aleatórias das avaliações mais recentes.</h2>
+        </div>
+    </div>
 
-    <br />
     <br />
     <br />
 
@@ -18,6 +21,8 @@
                 Prova POSCOMP @Html.DisplayFor(model => model[i].Prova) - Pergunta  @Html.DisplayFor(model => model[i].Numero)
             </div>
             <div class="container p-3 my-3 border">
+                <i class="bi bi-caret-right"></i>
+
                 <blockquote class="blockquote mb-0">
                     @Html.DisplayFor(model => model[i].Enunciado)
                 </blockquote>
