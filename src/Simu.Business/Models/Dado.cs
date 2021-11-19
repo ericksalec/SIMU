@@ -12,6 +12,7 @@ namespace Simu.Business.Models
         public int Respondidas { get; set; }
         public int Acertos { get; set; }
         public int Erros { get; set; }
+        public int AnoProva { get; set; }
 
     }
 }

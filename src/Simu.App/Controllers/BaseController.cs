@@ -17,5 +17,6 @@ namespace Simu.App.Controllers
         {
             return !_notificador.TemNotificacao();
         }
+
     }
 }

@@ -21,6 +21,7 @@ namespace Simu.App.ViewModels
         public string Descricao { get; set; }
 
         public string Imagem { get; set; }
+        public string Prova { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
@@ -30,10 +31,6 @@ namespace Simu.App.ViewModels
 
         [DisplayName("Feita?")]
         public bool Ativo { get; set; }
-
-        [DisplayName("Prova")]
-        public string Prova { get; set; }
-
 
         //public string TarefaId { get; set; }
 

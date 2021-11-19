@@ -3,9 +3,14 @@
 {
     ViewData["Title"] = "Questoes";
 
-    <h1>Avaliação POSCOMP</h1>
 
-    <br />
+    <div class="card">
+        <div class="card-body">
+            <h1>Simulação POSCOMP</h1>
+            <h2>Questões aleatórias das avaliações mais recentes.</h2>
+        </div>
+    </div>
+
     <br />
     <br />
 
@@ -13,9 +18,11 @@
     {
         <div class="container p-3 my-3 border">
             <div class="card-header">
-                Pergunta  @Html.DisplayFor(model => model[i].Numero)
+                Prova POSCOMP @Html.DisplayFor(model => model[i].Prova) - Pergunta  @Html.DisplayFor(model => model[i].Numero)
             </div>
             <div class="container p-3 my-3 border">
+                <i class="bi bi-caret-right"></i>
+
                 <blockquote class="blockquote mb-0">
                     @Html.DisplayFor(model => model[i].Enunciado)
                 </blockquote>
@@ -64,11 +71,8 @@
 
         </div>
     }
-
-    <div class="modal-footer">
-        <div class="col-md-offset-2 col-md-10">
-            <input asp-action="VerificarRespostas" type="submit" value="Enviar" class="btn btn-success" id="ddd" />
-        </div>
+    <div>
+        <input asp-action="VerificarRespostas" type="submit" value="Finalizar simulado" class="btn btn-success btn-lg" id="ddd" />
     </div>
     <br />
     <br />

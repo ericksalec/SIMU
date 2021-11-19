@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<Simu.App.ViewModels.TarefaViewModel>
+@model Simu.App.ViewModels.DadoViewModel
 
 @{
     ViewData["Title"] = "Lista de Tarefas Feitas";
@@ -27,8 +27,8 @@
             data.addColumn('string', 'Linguagem'); //Adiciona a coluna 'Linguagem'
             data.addColumn('number', 'Porcentagem');//Adiciona coluna 'Porcentagem'
             data.addRows([ //Adiciona as linhas da tabela com os valores
-                ['Corretas', 184],
-                ['Incorretas', 96]
+            ['Corretas', @Html.Display("Acertos")],
+            ['Incorretas', @Html.Display("Erros")]
             ]);
 
             // Configura título, largura e altura do gráfico
@@ -63,9 +63,9 @@
             data.addColumn('string', 'Linguagem'); //Adiciona a coluna 'Linguagem'
             data.addColumn('number', 'Porcentagem');//Adiciona coluna 'Porcentagem'
             data.addRows([ //Adiciona as linhas da tabela com os valores
-                ['Matemática', 75],
-                ['Fundamentos da Computação', 80],
-                ['Tecnologia da Computação', 125]
+                ['Matemática', 7],
+                ['Fundamentos da Computação', 8],
+                ['Tecnologia da Computação', 12]
             ]);
 
 
@@ -76,9 +76,9 @@
                 height: 500,
                 is3D: true,
                 legend: 'left',
-                fontSize:15,
-                   backgroundColor: 'Gainsboro',
-               // chartArea: { 'backgroundColor': 'Gainsboro' },
+                fontSize: 15,
+                backgroundColor: 'Gainsboro',
+                // chartArea: { 'backgroundColor': 'Gainsboro' },
                 backgroundColor: {
                     stroke: 'Gainsboro',
                     strokeWidth: 2
@@ -139,7 +139,9 @@
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title justify-content-center text-uppercase text-muted mb-0">Respondidas</h5>
-                        <span class="h2 font-weight-bold mb-0">280</span>
+                        <span class="h2 font-weight-bold mb-0">
+                            @Html.Display("Respondidas")
+                        </span>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -161,7 +163,9 @@
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Corretas</h5>
-                        <span class="h2 font-weight-bold mb-0  text-success">184</span>
+                        <span class="h2 font-weight-bold mb-0  text-success">
+                            @Html.Display("Acertos")
+                        </span>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -176,6 +180,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-xl-3 col-md-6">
         <div class="card card-stats">
             <!-- Card body -->
@@ -183,7 +188,10 @@
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Incorretas</h5>
-                        <span class="h2 font-weight-bold mb-0  text-danger">96</span>
+                        <span class="h2 font-weight-bold mb-0  text-danger">
+                          @Html.Display("Erros")
+                        </span>
+
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">

@@ -52,6 +52,9 @@ namespace Simu.App
             services.AddTransient<ITarefaRepository, TarefaRepository>();
             services.AddTransient<IQuestaoService, QuestaoService>();
             services.AddTransient<ITarefaService, TarefaService>();
+            services.AddTransient<IDadoService, DadoService>();
+            services.AddTransient<IDadoRepository, DadoRepository>();
+
 
             services.AddAutoMapper(typeof(Startup));
             services.ResolveDependencies();

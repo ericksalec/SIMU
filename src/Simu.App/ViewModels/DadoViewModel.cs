@@ -26,5 +26,10 @@ namespace Simu.App.ViewModels
         [DisplayName("Questões errdas")]
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public int Erros { get; set; }
+
+        [DisplayName("Ano da Prova")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        public int AnoProva { get; set; }
+
     }
 }
