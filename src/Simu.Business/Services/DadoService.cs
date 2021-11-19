@@ -40,6 +40,13 @@ namespace Simu.Business.Services
         {
             await _dadoRepository.Remover(id);
         }
+        public async Task BuscarDadosUsuario(Guid id)
+        {
+            await _dadoRepository.ObterDadosUsuario(id);
+
+            //return null;
+        }
+
 
         public void Dispose()
         {

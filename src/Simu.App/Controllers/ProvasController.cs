@@ -46,11 +46,33 @@ namespace Simu.App.Controllers
             return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoes()));
 
         }
+        public async Task<IActionResult> Dados()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var id = Guid.Parse(userId);
+            var dado = _mapper.Map<Dado>(await _dadoRepository.ObterDadosUsuario(id));
 
+            var dadoViewModel = new DadoViewModel 
+            {
+                Acertos = dado.Acertos,
+                Erros = dado.Erros,
+                Respondidas = dado.Respondidas,
+            };
+
+            return View(dadoViewModel);
+        }
         public async Task<IActionResult> QuestoesPorProva(string prova)
         {
             ViewData["Prova"] = prova;
             return View(_mapper.Map<IList<QuestaoViewModel>>(await _questaoRepository.ObterQuestoesProva(prova)));
+
+        }
+
+        public async Task<IActionResult> ObterDadosUsuario()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var id = Guid.Parse(userId);
+            return View(_mapper.Map<Dado>(await _dadoRepository.ObterDadosUsuario(id)));
 
         }
 

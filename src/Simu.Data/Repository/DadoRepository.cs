@@ -14,14 +14,39 @@ namespace Simu.Data.Repository
     {
         public DadoRepository(SimuDbContext context) : base(context) { }
 
-        public Task<IList<Questao>> ObterDados()
+        public Task<IList<Dado>> ObterDados()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Questao> ObterDadosUsuario(Guid id)
+
+        public async Task<Dado> ObterDadosUsuario(Guid id)
         {
-            throw new NotImplementedException();
+            var somaAcertos = 0;
+            var somaErros = 0;
+            var somaRespondidas = 0;
+
+            var list = await Db.Dado.AsNoTracking()
+                .OrderBy(p => p.Id)
+                .Where(p => (p.UserId == id))
+                .ToListAsync();
+
+            foreach (var item in list)
+            {
+                somaRespondidas = somaRespondidas + item.Respondidas;
+                somaAcertos = somaAcertos + item.Acertos;
+                somaErros = somaErros + item.Erros;
+            }
+
+            var dado = new Dado
+            {
+                Acertos = somaAcertos,
+                Erros = somaErros,
+                Respondidas = somaRespondidas,
+                UserId = id,
+            };
+
+            return dado;
         }
     }
 }

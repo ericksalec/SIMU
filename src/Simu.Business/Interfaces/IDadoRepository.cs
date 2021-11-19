@@ -9,7 +9,7 @@ namespace Simu.Business.Interfaces
 {
     public interface IDadoRepository : IRepository<Dado>
     {
-        Task<Questao> ObterDadosUsuario(Guid id);
-        Task<IList<Questao>> ObterDados();
+        Task<Dado> ObterDadosUsuario(Guid id);
+        Task<IList<Dado>> ObterDados();
     }
 }
